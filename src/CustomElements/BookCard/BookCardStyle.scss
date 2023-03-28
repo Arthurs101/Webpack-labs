@@ -1,0 +1,93 @@
+$color_base : #3b3b3b;
+$conic_color: linear-gradient(120deg, #ff00b3 , #007bff, #00f7ff,#00ff55,#33ff00,#e5ff00,#ff0000,#ff00b3);
+$standerd_border_radius: 5rem;
+$font_color: white;
+$font_family: 'Courier New', Courier, monospace;
+@mixin frames($name: "spinner", $duration: 10s, $count: infinite) {
+    @keyframes spinner {
+
+        0%,100% {
+            background-position: 0% 400%;
+        }
+    
+        50% {
+            background-position: 400% 0%;
+        }
+        
+    }
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-iteration-count: $count; 
+    animation-timing-function: ease-in-out ; 
+    }
+    a{
+        background: solid;
+        position: relative;
+        height: 600px;
+        width: 600px;
+    }
+.super-container{
+    display: block;
+    padding: 10px;
+    height: 600px;
+    width: 600px;
+    
+    .addorn{
+        position: relative;
+        top: -595px;
+        left: 5px;
+        background: $color_base;
+        height: 590px;
+        width: 590px;
+        border-radius: $standerd_border_radius;
+        
+                 
+    }
+    .background{
+        position: relative;
+        height: 600px;
+        width: 600px;
+        background: $conic_color ;
+        border-radius: $standerd_border_radius; 
+        background-size: 400% 400%;   
+        @include frames(spinner)
+    }
+    &:hover{
+        .background{
+                background: #ff0000;
+        } 
+    }
+    .data-book{
+        position: relative;
+        top: -1150px;
+        left: 70px;
+        max-width: 480px;
+        max-height: 480px;
+        overflow-y: auto;
+        hr{
+            overflow-wrap: break-word;
+            
+        }
+        h1{
+           
+            color: $font_color;
+            font-family: $font_family;
+            overflow-wrap: break-word;
+           
+            
+        }
+        h2{
+            
+            color: $font_color;
+            font-family: $font_family;
+            overflow-wrap: break-word;
+        }
+        p{
+            
+            color: $font_color;
+            overflow-wrap: break-word;
+        }
+    }
+    
+}
+

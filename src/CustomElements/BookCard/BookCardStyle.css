@@ -1,0 +1,70 @@
+a {
+  background: solid;
+  position: relative;
+  height: 600px;
+  width: 600px;
+}
+
+.super-container {
+  display: block;
+  padding: 10px;
+  height: 600px;
+  width: 600px;
+}
+.super-container .addorn {
+  position: relative;
+  top: -595px;
+  left: 5px;
+  background: #3b3b3b;
+  height: 590px;
+  width: 590px;
+  border-radius: 5rem;
+}
+.super-container .background {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  background: linear-gradient(120deg, #ff00b3, #007bff, #00f7ff, #00ff55, #33ff00, #e5ff00, #ff0000, #ff00b3);
+  border-radius: 5rem;
+  background-size: 400% 400%;
+  animation-name: spinner;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes spinner {
+  0%, 100% {
+    background-position: 0% 400%;
+  }
+  50% {
+    background-position: 400% 0%;
+  }
+}
+.super-container:hover .background {
+  background: #ff0000;
+}
+.super-container .data-book {
+  position: relative;
+  top: -1150px;
+  left: 70px;
+  max-width: 480px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.super-container .data-book hr {
+  overflow-wrap: break-word;
+}
+.super-container .data-book h1 {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  overflow-wrap: break-word;
+}
+.super-container .data-book h2 {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  overflow-wrap: break-word;
+}
+.super-container .data-book p {
+  color: white;
+  overflow-wrap: break-word;
+}/*# sourceMappingURL=BookCardStyle.css.map */
