@@ -14,7 +14,7 @@ module.exports ={
         popularBooks: "/src/Biblioteca/popularBooks.js",
     } ,
     output:{ //multiple outputs
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist_with_babel'),
       filename: '[name].bundle.js',
     },
     //css plugin for css bundle and HTML BUNDLE
@@ -24,7 +24,7 @@ module.exports ={
       'North', 'wakeUp'].map((event) =>
         new HtmlWebpackPlugin({
             template: `./src/History/${event}.html`,
-            filename: `Historia/${event}.html`,
+            filename: `History/${event}.html`,
             chunks: 'universal'
           })
         )
@@ -71,6 +71,18 @@ module.exports ={
     module: {
       rules: [
         {
+          test: /\.(gif|png|jpe?g)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'assets/images/'
+              }
+            }
+          ]
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
@@ -88,6 +100,11 @@ module.exports ={
         {
           test: /\.css$/i,
           use: 'raw-loader',
+        },
+        {
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          exclude: /(node_modules)/
         }
       ],
     }

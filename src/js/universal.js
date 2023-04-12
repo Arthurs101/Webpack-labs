@@ -3,6 +3,7 @@ import 'bootstrap';
 startApp()
 InjectBootstrapProgress()
 let references=document.getElementsByTagName('a')
+console.log(references.length)
 for (let i = 0; i < references.length; i++) {
     let element = references[i];
     let url = element.href
@@ -16,7 +17,8 @@ document.head.appendChild(encode);
 
 function InjectBootstrapProgress(){
     let progress = document.getElementsByTagName('progress')
-    let prog = progress[0]
+    if(progress.length > 0){
+        let prog = progress[0]
     let value = prog.value
     prog.remove()
     let bootwrap = document.createElement('div')
@@ -34,6 +36,7 @@ function InjectBootstrapProgress(){
     bootwrap.style.marginBottom="20px"
     bootwrap.appendChild(bootbar)
     document.getElementsByTagName("footer")[0].appendChild(bootwrap)
+    }
 }
     
 
